@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="csv.js"></script>
     <title>Pokemons　roar　quiz</title>
     <style>
       div {
@@ -33,27 +35,28 @@
       }
     </style>
     <script> 
-      let audio = null;
+      let randomnum = null;
      function init(){
-　    var num = Math.floor(Math.random () * 60) + 1;
-      audio = document.getElementById("num" + num);
+      getCSV(reset);
      }
 
       function playroar() {
+        audio = new Audio();
         if (audio != null) {
+          audio.src = "roar/" +masterlist[randomnum].name+".mp3";
           audio.currentTime = 0;
           audio.play();
         }
       }
       function reset(){
-       num = Math.floor(Math.random () * 60) + 1;
-       audio = document.getElementById("num" + num);
+      randomnum = Math.floor(Math.random() * 100) + 1
+      
+
       }
 
       function answer(){
-        var filename = audio.firstChild.getAttribute("src")
-        var answer = filename.substring(0, filename.indexOf("."))
-        return answer;
+        var name = masterlist[randomnum].name
+        return name;
       }
       function check(){
         const textElement = document.querySelector("#textid");
@@ -61,7 +64,7 @@
         if (textElement.value == ""){
           alert("何も入力されてません。入力欄に答えを入力してください。");
         }
-        if (ans==textElement.value){
+        else if (ans==textElement.value){
             alert("そう、正解です！");
         }
         else {
@@ -83,132 +86,10 @@
     <h3>現在、実装されている鳴き声は「ヒトデマン」までです。順次実装させていますのでしばしお待ちを・・・</h3>
     <h3>不具合報告、その他お問い合わせなどは<a href="https://twitter.com/fabre_5kura" target="_blank">コチラに</a></h3>
     <h3>メールで連絡する場合はコチラ→「fabre.shark@gmail.com」</h3>
-    <audio id="num1"><source src="フシギダネ.mp3"></audio>
-    <audio id="num2"><source src="フシギソウ.mp3"></audio>
-    <audio id="num3"><source src="フシギバナ.mp3"></audio>
-    <audio id="num4"><source src="ヒトカゲ.mp3"></audio>
-    <audio id="num5"><source src="リザード.mp3"></audio>
-    <audio id="num6"><source src="リザードン.mp3"></audio>
-    <audio id="num7"><source src="ゼニガメ.mp3"></audio>
-    <audio id="num8"><source src="カメール.mp3"></audio>
-    <audio id="num9"><source src="カメックス.mp3"></audio>
-    <audio id="num10"><source src="キャタピー.mp3"></audio>
-    <audio id="num11"><source src="トランセル.mp3"></audio>
-    <audio id="num12"><source src="バタフリー.mp3"></audio>
-    <audio id="num13"><source src="ビードル.mp3"></audio>
-    <audio id="num14"><source src="コクーン.mp3"></audio>
-    <audio id="num15"><source src="スピアー.mp3"></audio>
-    <audio id="num16"><source src="ポッポ.mp3"></audio>
-    <audio id="num17"><source src="ピジョン.mp3"></audio>
-    <audio id="num18"><source src="ピジョット.mp3"></audio>
-    <audio id="num19"><source src="コラッタ.mp3"></audio>
-    <audio id="num20"><source src="ラッタ.mp3"></audio>
-    <audio id="num21"><source src="オニスズメ.mp3"></audio>
-    <audio id="num22"><source src="オニドリル.mp3"></audio>
-    <audio id="num23"><source src="アーボ.mp3"></audio>
-    <audio id="num24"><source src="アーボック.mp3"></audio>
-    <audio id="num25"><source src="ピカチュウ.mp3"></audio>
-    <audio id="num26"><source src="ライチュウ.mp3"></audio>
-    <audio id="num27"><source src="サンド.mp3"></audio>
-    <audio id="num28"><source src="サンドパン.mp3"></audio>
-    <audio id="num29"><source src="ニドラン♀.mp3"></audio>
-    <audio id="num30"><source src="ニドリーナ.mp3"></audio>
-    <audio id="num31"><source src="ニドクイン.mp3"></audio>
-    <audio id="num32"><source src="ニドラン♂.mp3"></audio>
-    <audio id="num33"><source src="ニドリーノ.mp3"></audio>
-    <audio id="num34"><source src="ニドキング.mp3"></audio>
-    <audio id="num35"><source src="ピッピ.mp3"></audio>
-    <audio id="num36"><source src="ピクシー.mp3"></audio>
-    <audio id="num37"><source src="ロコン.mp3"></audio>
-    <audio id="num38"><source src="キュウコン.mp3"></audio>
-    <audio id="num39"><source src="プリン.mp3"></audio>
-    <audio id="num40"><source src="プクリン.mp3"></audio>
-    <audio id="num41"><source src="ズバット.mp3"></audio>
-    <audio id="num42"><source src="ゴルバット.mp3"></audio>
-    <audio id="num43"><source src="ナゾノクサ.mp3"></audio>
-    <audio id="num44"><source src="クサイハナ.mp3"></audio>
-    <audio id="num45"><source src="ラフレシア.mp3"></audio>
-    <audio id="num46"><source src="パラス.mp3"></audio>
-    <audio id="num47"><source src="パラセクト.mp3"></audio>
-    <audio id="num48"><source src="コンパン.mp3"></audio>
-    <audio id="num49"><source src="モルフォン.mp3"></audio>
-    <audio id="num50"><source src="ディグダ.mp3"></audio>
-    <audio id="num51"><source src="ダグトリオ.mp3"></audio>
-    <audio id="num52"><source src="ニャース.mp3"></audio>
-    <audio id="num53"><source src="ペルシアン.mp3"></audio>
-    <audio id="num54"><source src="コダック.mp3"></audio>
-    <audio id="num55"><source src="ゴルダック.mp3"></audio>
-    <audio id="num56"><source src="マンキー.mp3"></audio>
-    <audio id="num57"><source src="オコリザル.mp3"></audio>
-    <audio id="num58"><source src="ガーディ.mp3"></audio>
-    <audio id="num59"><source src="ウインディ.mp3"></audio>
-    <audio id="num60"><source src="ニョロモ.mp3"></audio>
-    <audio id="num71"><source src="ニョロゾ.mp3"></audio>
-    <audio id="num72"><source src="ニョロボン.mp3"></audio>
-    <audio id="num73"><source src="ケーシィ.mp3"></audio>
-    <audio id="num74"><source src="ユンゲラー.mp3"></audio>
-    <audio id="num75"><source src="フーディン.mp3"></audio>
-    <audio id="num76"><source src="ワンリキー.mp3"></audio>
-    <audio id="num77"><source src="ゴーリキー.mp3"></audio>
-    <audio id="num78"><source src="カイリキー.mp3"></audio>
-    <audio id="num79"><source src="マダツボミ.mp3"></audio>
-    <audio id="num80"><source src="ウツドン.mp3"></audio>
-    <audio id="num81"><source src="ウツボット.mp3"></audio>
-    <audio id="num82"><source src="メノクラゲ.mp3"></audio>
-    <audio id="num83"><source src="ドククラゲ.mp3"></audio>
-    <audio id="num84"><source src="イシツブテ.mp3"></audio>
-    <audio id="num85"><source src="ゴローン.mp3"></audio>
-    <audio id="num86"><source src="ゴローニャ.mp3"></audio>
-    <audio id="num87"><source src="ポニータ.mp3"></audio>
-    <audio id="num88"><source src="ギャロップ.mp3"></audio>
-    <audio id="num89"><source src="ヤドン.mp3"></audio>
-    <audio id="num80"><source src="ヤドラン.mp3"></audio>
-    <audio id="num91"><source src="コイル.mp3"></audio>
-    <audio id="num92"><source src="レアコイル.mp3"></audio>
-    <audio id="num93"><source src="カモネギ.mp3"></audio>
-    <audio id="num94"><source src="ドードー.mp3"></audio>
-    <audio id="num95"><source src="ドードリオ.mp3"></audio>
-    <audio id="num96"><source src="パウワウ.mp3"></audio>
-    <audio id="num97"><source src="ジュゴン.mp3"></audio>
-    <audio id="num98"><source src="ベトベター.mp3"></audio>
-    <audio id="num99"><source src="ベトベトン.mp3"></audio>
-    <audio id="num100"><source src="シェルダー.mp3"></audio>
-    <audio id="num101"><source src="パルシェン.mp3"></audio>
-    <audio id="num102"><source src="ゴース.mp3"></audio>
-    <audio id="num103"><source src="ゴースト.mp3"></audio>
-    <audio id="num104"><source src="ゲンガー.mp3"></audio>
-    <audio id="num105"><source src="イワーク.mp3"></audio>
-    <audio id="num106"><source src="スリープ.mp3"></audio>
-    <audio id="num107"><source src="スリーパー.mp3"></audio>
-    <audio id="num108"><source src="クラブ.mp3"></audio>
-    <audio id="num109"><source src="キングラー.mp3"></audio>
-    <audio id="num110"><source src="ビリリダマ.mp3"></audio>
-    <audio id="num111"><source src="マルマイン.mp3"></audio>
-    <audio id="num112"><source src="タマタマ.mp3"></audio>
-    <audio id="num113"><source src="ナッシー.mp3"></audio>
-    <audio id="num114"><source src="カラカラ.mp3"></audio>
-    <audio id="num115"><source src="ガラガラ.mp3"></audio>
-    <audio id="num116"><source src="サワムラー.mp3"></audio>
-    <audio id="num117"><source src="エビワラー.mp3"></audio>
-    <audio id="num118"><source src="ベロリンガ.mp3"></audio>
-    <audio id="num119"><source src="ドガース.mp3"></audio>
-    <audio id="num120"><source src="マタドガス.mp3"></audio>
-    <audio id="num121"><source src="サイホーン.mp3"></audio>
-    <audio id="num122"><source src="サイドン.mp3"></audio>
-    <audio id="num123"><source src="ラッキー.mp3"></audio>
-    <audio id="num124"><source src="モンジャラ.mp3"></audio>
-    <audio id="num125"><source src="ガルーラ.mp3"></audio>
-    <audio id="num126"><source src="タッツー.mp3"></audio>
-    <audio id="num127"><source src="シードラ.mp3"></audio>
-    <audio id="num128"><source src="トサキント.mp3"></audio>
-    <audio id="num129"><source src="アズマオウ.mp3"></audio>
-    <audio id="num130"><source src="ヒトデマン.mp3"></audio>
-    <div onmousedown="playroar()">鳴き声再生</div>
+        <div onmousedown="playroar()">鳴き声再生</div>
     <div onmousedown="reset()">鳴き声リセット</div>
     <input id="textid" type="text">
     <div onmousedown="check()">正解チェック</div>
-
-
   </body>
   <footer><p>ポケットモンスター・ポケモン・Pokemonは任天堂・クリーチャーズ・ゲームフリークの登録商標です。</p>
   <p>鳴き声データは「<a href="http://hikochans.com/" target="_blank">ひこちゃんず！</a>」様のものを使わせていただいています。</p>

@@ -94,6 +94,7 @@
         else {
           answerElem.innerHTML = "<br>残念！この鳴き声は<br>" + ans + "の鳴き声でした！";
         }
+        reset();
         updateCorrectRate()
       }
       function updateCorrectRate(){
@@ -126,7 +127,6 @@
     <div class="parent">
       <div>
         <div onmousedown="playroar()">鳴き声再生</div>
-        <div onmousedown="reset()">鳴き声リセット</div>
         <input id="textid" type="text">
         <div onmousedown="check()">正解チェック</div>
       </div>

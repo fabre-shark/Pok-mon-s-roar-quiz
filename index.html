@@ -83,18 +83,21 @@
           answerElem.textContent = "何も入力されてません。入力欄に答えを入力してください。";
           return;
         }
-        corrects ++;
-        localStorage.setItem("corrects",corrects);
+        Qnum ++;
+        localStorage.setItem("Qnum",Qnum);
         if (ans==textElement.value){
           answerElem.textContent = "そう、正解です！";
-          Qnum ++;
-          localStorage.setItem("Qnum",Qnum);
+          corrects ++;
+          localStorage.setItem("corrects",corrects);
         }
         else {
           answerElem.innerHTML = "<br>残念！この鳴き声は<br>" + ans + "の鳴き声でした！";
         }
-        console.log (Qnum)
-        console.log(corrects)
+      }
+      function updateCorrectRate(){
+        const correctRateElem = document.querySelector("#correctRate");
+        const correctsRate =Math.floor(corrects / Qnum * 100);
+        correctRateElem.textContent = correctsRate+"%";
       }
       window.addEventListener("load",init);
     </script>
@@ -123,7 +126,7 @@
       </div>
       <div id="answer">ここにこたえ</div>
     </div>
-
+    <h3 id="correctRate"></h3>
     <footer><p>ポケットモンスター・ポケモン・Pokemonは任天堂・クリーチャーズ・ゲームフリークの登録商標です。</p>
       <p>鳴き声データは「<a href="http://hikochans.com/" target="_blank">ひこちゃんず！</a>」様のものを使わせていただいています。</p>
       <p>© 2018 ファーブル</p></footer>

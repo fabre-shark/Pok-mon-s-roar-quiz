@@ -44,14 +44,16 @@
     </style>
     <script> 
       let randomnum = null;
+      let corrects;
+      let Qnum;
      function init(){
       getCSV(reset);
-      let Qnum = localStorage.getItem("Qnum");
+      Qnum = localStorage.getItem("Qnum");
       if (Qnum == null) {Qnum = 0;}
       else{
         Qnum = number(Qnum);
      }
-      let corrects = localStorage.getItem("corrects");
+      corrects = localStorage.getItem("corrects");
       if (corrects == null) {corrects = 0;}
       else{
         corrects = number(corrects);

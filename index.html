@@ -48,7 +48,7 @@
         }
       }
       function reset(){
-      randomnum = Math.floor(Math.random() * 159) + 1
+      randomnum = Math.floor(Math.random() * 159) + 1;
       
       }
       function answer(){
@@ -58,15 +58,15 @@
       function check(){
         const textElement = document.querySelector("#textid");
         ans = answer();
-        const answer = document.getElementById("answer")
+        const answerElem = document.getElementById("answer")
         if (textElement.value == ""){
-          answer.textContent = "何も入力されてません。入力欄に答えを入力してください。";
+          answerElem.textContent = "何も入力されてません。入力欄に答えを入力してください。";
         }
         else if (ans==textElement.value){
-          answer.textContent = "そう、正解です！";
+          answerElem.textContent = "そう、正解です！";
         }
         else {
-          answer.textContent = "残念！この鳴き声は"+ans+"の鳴き声でした！";
+          answerElem.textContent = "残念！この鳴き声は"+ans+"の鳴き声でした！";
         }
       }
       window.addEventListener("load",init);

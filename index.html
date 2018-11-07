@@ -98,8 +98,12 @@
       }
       function updateCorrectRate(){
         const correctRateElem = document.querySelector("#correctRate");
-        const correctsRate =Math.floor(corrects / Qnum * 100);
+        if(Qnum==0){
+          correctRateElem.textContent = "0%";
+        }
+        else{const correctsRate =Math.floor(corrects / Qnum * 100);
         correctRateElem.textContent = correctsRate+"%";
+        }
       }
       window.addEventListener("load",init);
     </script>

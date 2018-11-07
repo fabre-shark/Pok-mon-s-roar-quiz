@@ -58,6 +58,7 @@
       else{
         corrects = Number(corrects);
      }
+     updateCorrectRate()
     }
       function playroar() {
         audio = new Audio();
@@ -93,6 +94,7 @@
         else {
           answerElem.innerHTML = "<br>残念！この鳴き声は<br>" + ans + "の鳴き声でした！";
         }
+        updateCorrectRate()
       }
       function updateCorrectRate(){
         const correctRateElem = document.querySelector("#correctRate");
